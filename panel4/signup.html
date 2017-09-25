@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link href="../css/signup.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<!-- 
+			
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+								
+		<title></title>
+		<script type="text/javascript">
+			        (function (doc, win) {
+			            var docEl = doc.documentElement,
+			                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			                recalc = function () {
+			                    var clientHeight = docEl.clientHeight;
+			                    //alert("clientHeight==" + clientHeight);
+			                    var clientWidth = docEl.clientWidth;
+			                    //alert("clientWidth==" + clientWidth);
+			                    //if (!clientWidth) return;
+			                    if (clientWidth >= clientHeight) {
+			                         docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+			                    } else {
+			                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+			                    }
+			                   
+			                };
+			            if (!doc.addEventListener) return;
+			            win.addEventListener(resizeEvt, recalc, false);
+			            doc.addEventListener('DOMContentLoaded', recalc, false);
+			        })(document, window);
+			    </script> -->
+	</head>
+
+	<body>
+		<div class="page-header">
+			<h1>账号注册</h1>
+		</div>
+		<div class="container">
+
+			<form class="form-signup form-horizontal" action="new_file.html">
+				<div class="form-group">
+					<label for="username" class="col-md-1">登录名：</label>
+					<div class="ucol col-md-4">
+						<input type="text" class="form-control" id="username" placeholder="登录名" required="" autofocus="" maxlength="10">
+					</div>
+					<label for="password" class="col-md-1 col-md-offset-2">密码：</label>
+					<div class="ucol col-md-4">
+						<input type="password" class="form-control" id="password" placeholder="密码" required="" maxlength="20">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="name" class="col-md-1 ">姓名：</label>
+					<div class="ucol col-md-4">
+						<input type="text" id="name" class="form-control" placeholder="姓名" required="" maxlength="10">
+					</div>
+					<label for="sex" class="col-md-1 col-md-offset-2 ">性别：</label>
+					<div class="ucol col-md-4">
+						<select id='sex' class="form-control">
+							<option>男</option>
+							<option>女</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="IDcard" class="col-md-1 ">身份证号：</label>
+					<div class="ucol col-md-4">
+						<input type="text" id="IDcard" class="form-control" placeholder="身份证号" required="" maxlength="18" pattern="\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)">
+					</div>
+					<label for="telephone " class="col-md-1 col-md-offset-2 ">电话：</label>
+					<div class="ucol col-md-4">
+						<input type="tel" id="telephone" class="form-control" placeholder="电话" required="" maxlength="13" pattern="0\d{2,3}-?\d{7,8}" title="3或4位区号+7或8位号码">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="club" class="col-md-1 ">部门：</label>
+					<div class="ucol col-md-4">
+						<select id='club' class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<label for="cellphone " class="col-md-1 col-md-offset-2 ">手机：</label>
+					<div class="ucol col-md-4">
+						<input type="tel" id="cellphone" class="form-control" placeholder="手机" required="" maxlength="11" pattern="1\d{10}" title="正确的中国大陆手机号">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="kind" class="col-md-1 ">所属集团：</label>
+					<div class="ucol col-md-4">
+						<input type="text" id="company" class="form-control" placeholder="所属集团" required="" value="GG" disabled>
+					</div>
+					<label for="state" class="col-md-1 col-md-offset-2 ">所属水电站：</label>
+					<div class="ucol col-md-4">
+						<!--<label>
+         					 <input type="radio" id="state1" name="state" checked=""> 启用
+                          </label>
+						<label>
+         					 <input type="radio" id="state2" name="state"> 不启用
+                          </label>-->
+                          <input type="text" id="childcompany" class="form-control" placeholder="所属水电站" required="">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-5"></label>
+					<div class="col-md-2">
+						<button class="btn btn-lg btn-primary btn-block" type="submit" id='signup'>注册</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</body>
+	<script>
+		$(document).ready(function() {
+			$(".form-signup").submit(function(e) {
+				e.preventDefault();
+				$('.alert').alert('close');
+				//				$.ajax({ 
+				//					type:   'POST',
+				//					 data:  $(this).serialize(),
+				//					 url:   'xxxx',
+				//					            success:   function ()  { 
+				//						state.success();            
+				//					},
+				//					            error:   function (xhr)  {               
+				//						state.error();            
+				//					}         
+				//				});     
+				state.error('???');      
+			});
+		});
+
+		let state = {};
+		state.success = function() {
+			$('.form-signup').after(['<div id="myAlert" class="alert alert-success">',
+				'    <a href="#" class="close" data-dismiss="alert">&times;</a>',
+				'    <strong>注册成功！</strong>',
+				'</div>'
+			].join(""));
+		}
+		state.error = function(err) {
+			$('.form-signup').after(['<div id="myAlert" class="alert alert-warning">',
+				'    <a href="#" class="close" data-dismiss="alert">&times;</a>',
+				'    <strong>警告！</strong>' + err,
+				'</div>',
+			].join(""));
+		}
+	</script>
+
+</html>

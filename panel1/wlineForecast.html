@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Charts</title>
+
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script src="../js/echarts3.js"></script>
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientHeight = docEl.clientHeight;
+						//alert("clientHeight==" + clientHeight);
+						var clientWidth = docEl.clientWidth;
+						//alert("clientWidth==" + clientWidth);
+						//if (!clientWidth) return;
+						if(clientWidth >= clientHeight) {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						}
+						document.getElementById("main").style.height = (clientWidth / 1920) * 800 + 'px';
+						document.getElementById("main").style.width = (clientWidth / 1920) * 2000 + 'px';
+
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div id="head">
+			<select id="state" style="margin-top: 0.2rem;margin-left: 0.8rem;height: 0.7rem;width: 2rem;">
+				<option>发电站1</option>
+				<option>发电站2</option>
+			</select>
+		</div>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="width: 2000px;height:800px;"></div>
+	</body>
+
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script src="wlingForecast.js"></script>
+	<script type="text/javascript">
+		//window.resizeTo(1920, 932);//改变大小   
+		window.onresize = function() {
+			myChart.resize();
+
+		};
+	</script>
+
+</html>

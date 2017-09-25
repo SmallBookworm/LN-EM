@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" />
+		<link rel="stylesheet" href="../css/button.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/ichart.latest.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<title></title>
+		<script type="text/javascript">
+			var width0;
+			var height0;
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientHeight = docEl.clientHeight;
+						//alert("clientHeight==" + clientHeight);
+						var clientWidth = docEl.clientWidth;
+						//alert("clientWidth==" + clientWidth);
+						//if (!clientWidth) return;
+						if(clientWidth >= clientHeight) {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						}
+						document.getElementById("analysisdata").style.height = (clientWidth / 1920) * 700 + 'px';
+						// document.getElementById("alternator").style.height=(clientWidth/1920)*350+'px';
+
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<div class="row" style="height: 1rem;margin-left: 0rem;font-size: 0.3rem;">
+				
+				<div class="col-md-6" style="font-size: 0.4rem;margin-top: 0.2rem;">
+					
+					<form>
+						选择对象：<input type="radio" name="time" checked="checked" value="day" style="height: 0.4rem;width: 0.4rem;margin-top: 0rem;" />发电量分析
+						<input type="radio" name="time" value="day" style="height: 0.4rem;width: 0.4rem;margin-top: 0rem;" />电压分析
+						<input type="radio" name="time" value="week" style="height: 0.4rem;width: 0.4rem;" />电流分析
+						<input type="radio" name="time" value="mouth" style="height: 0.4rem;width: 0.4rem;" />功率因数
+						<input type="radio" name="time" value="year" style="height: 0.4rem;width: 0.4rem;" />温度分析
+						<input type="radio" name="time" value="year" style="height: 0.4rem;width: 0.4rem;" />发电机转数
+						<input type="radio" name="time" value="year" style="height: 0.4rem;width: 0.4rem;" />水轮机转数
+					</form>
+				</div>
+				<div class="col-md-2">
+					<select id="state" style="margin-top: 0.2rem;height: 0.7rem;width: 2rem;">
+						<option>发电站1</option>
+						<option>发电站2</option>
+					</select>
+					<select id="NO" style="margin-top: 0.2rem;height: 0.7rem;width: 2rem;">
+						<option>1号机组</option>
+						<option>2号机组</option>
+					</select>
+				</div>
+				<div class="center container-fluid col-md-3" style="margin-top: 0.2rem;">
+					<div class="input-group input-daterange">
+						<input id='start' type="text" class="form-control">
+						<div class="input-group-addon">to</div>
+						<input id='end' type="text" class="form-control" disabled="">
+						<span class="blue input-group-addon" id="datetype">日<i class="glyphicon glyphicon-triangle-bottom"></i></span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button type="button" style="margin-top: 0.3rem;">查询</button>
+				</div>
+				
+
+				
+			</div>
+
+			<div class="row">
+				<div style="font-size: 0.4rem;font-weight: bold;text-align: center;margin-top: 0.5rem;">
+					发电量分析
+				</div>
+				<div id="analysisdata" style="height: 700px;">
+				</div>
+			</div>
+
+			<!--<div class="row">
+				<div style="margin-top: 0.6rem;text-align: center;">
+					<div style="font-size: 0.4rem;font-weight: bold;">
+						平均值分析
+					</div>
+					<div id="alternator" style="height: 350px;">						
+					</div>
+				</div>				
+			</div>-->
+		</div>
+		<script type="text/javascript" src="../js/dist/echarts-all.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.zh-CN.min.js"></script>
+		<script type="text/javascript" src="analysisdata.js"></script>
+		<script type="text/javascript" src="../js/daterange.js"></script>
+		<script type="text/javascript">
+			(new dateRange($('#start'), $('#end'), function() {
+				console.log(arguments)
+			})).initRAT(document.getElementById('datetype'));
+			window.onresize = function() {
+				myChart1.resize();
+			};
+		</script>
+	</body>
+
+</html>

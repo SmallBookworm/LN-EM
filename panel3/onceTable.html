@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/manager/bootstrap-table.css">
+		<title>单次故障报表</title>
+		<style>
+			#NO {
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<select id="NO">
+			<option>水电站1</option>
+			<option>水电站2</option>
+		</select>
+		<table id="table" data-toolbar="#toolbar" data-striped="true" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-show-export="true" data-detail-view="false" data-show-pagination-switch="true" data-pagination="true" data-show-footer="false" data-side-pagination="client" data-response-handler="responseHandler"></table>
+	</body>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script src="../js/manager/bootstrap-table.js"></script>
+	<script src="../js/manager/bootstrap-table-zh-CN.js"></script>
+	<script src="../js/export/bootstrap-table-export.js"></script>
+	<script src="../js/export/FileSaver.min.js"></script>
+	<script src="../js/export/tableExport.min.js"></script>
+	<script src="onceTable.js"></script>
+
+</html>

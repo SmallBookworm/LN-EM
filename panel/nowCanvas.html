@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<style>
+			body,
+			canvas {
+				margin: 0;
+				padding: 0;
+				overflow-x: hidden;
+			}
+			
+			select {
+				height: 40px;
+			}
+			
+			table.hovertable {
+				width: 100%;
+				font-family: verdana, arial, sans-serif;
+				font-size: 11px;
+				color: #333333;
+				border-width: 1px;
+				border-color: #999999;
+				border-collapse: collapse;
+			}
+			
+			table.hovertable th {
+				background-color: #c3dde0;
+				border-width: 1px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #a9c6c9;
+			}
+			
+			table.hovertable tr {
+				background-color: #d4e3e5;
+			}
+			
+			table.hovertable td {
+				border-width: 1px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #a9c6c9;
+			}
+			
+			table tr:hover {
+				background-color: #ffff66;
+			}
+		</style>
+		<title>nowInfo</title>
+	</head>
+
+	<body onload="init()">
+		<div id="head">
+			<select id="state">
+				<option>发电站1</option>
+				<option>发电站2</option>
+			</select>
+			<select id="NO">
+				<option>1号机组</option>
+				<option>2号机组</option>
+			</select>
+			<span>更新时间:2017/08/03</span>
+		</div>
+
+		<canvas id='main'></canvas>
+		<div class="container-fluid">
+			<div class="row">
+
+				<div class=" col-md-12 ">
+					<table id="ctable" class=" hovertable" border="1">
+						<thead>
+							<tr>
+								<th style="text-align: center;">设备</th>
+								<th style="text-align: center;">参数名</th>
+								<th style="text-align: center;">参数值</th>
+							</tr>
+						</thead>
+
+					</table>
+				</div>
+
+			</div>
+	</body>
+	<script src="nowCanvas.js"></script>
+
+</html>

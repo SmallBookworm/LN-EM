@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		
+		<title></title>
+		<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	<body>
+		<div id="efficiency" style="height: 24rem;">
+			
+		</div>
+		<script type="text/javascript" src="../js/dist/echarts.js" ></script>
+		<script type="text/javascript" src="efficiency.js" ></script>
+		<script type="text/javascript">
+			window.onresize = function () {
+		    	mychartefficiency.resize();	
+			};
+		</script>
+	</body>
+</html>

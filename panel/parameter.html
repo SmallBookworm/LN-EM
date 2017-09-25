@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		
+		<title></title>
+		<style type="text/css">			
+				table.hovertable {
+					font-family: verdana,arial,sans-serif;					
+					font-size:11px;					
+					color:#333333;					
+					border-width: 1px;					
+					border-color: #999999;					
+					border-collapse: collapse;				
+				}
+				
+				table.hovertable th {				
+					background-color:#c3dde0;					
+					border-width: 1px;					
+					padding: 8px;					
+					border-style: solid;					
+					border-color: #a9c6c9;				
+				}
+				
+				table.hovertable tr {				
+					background-color:#d4e3e5;				
+				}
+				
+				table.hovertable td {				
+					border-width: 1px;					
+					padding: 8px;					
+					border-style: solid;					
+					border-color: #a9c6c9;
+				
+				}
+		</style>
+		<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	<body style="overflow:-Scroll;overflow-x:hidden">
+		<div class="row">
+			<div id="change" class="col-md-2" style="text-align: center;margin-top: 0.5rem;">
+				<select style="width: 3rem; height: 0.8rem;font-size: 0.4rem;">
+					<option id="0" value="0" onclick="">水电站1</option>
+					<option id="1" value="1" onclick="">水电站2</option>
+					<option id="2" value="2" onclick="">水电站3</option>
+				</select>
+			</div>
+		</div>
+		<table id="ctable" border="1" class="col-md-8 hovertable" style="text-align: center;margin-left: 16.66666%;margin-top: -1rem;">
+			<tr>
+				<th style="text-align: center;">设备</th><th style="text-align: center;">参数名</th><th style="text-align: center;">更新时间</th><th style="text-align: center;">参数值</th>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td rowspan="14">水轮机</td>
+				<td>大轴摆度</td><td id="t-1">Item 1B</td><td id="v-1">Item 1C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>水轮机振动</td><td id="t-2">Item 2B</td><td id="v-2">Item 2C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>水轮机转速</td><td id="t-3">Item 3B</td><td id="v-3">Item 3C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>导叶开度</td><td id="t-4">Item 4B</td><td id="v-4">Item 4C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>轮叶开度</td><td id="t-5">Item 5B</td><td id="v-5">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>顶盖水位</td><td id="t-6">Item 5B</td><td id="v-6">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>水导（水轮机导轴承）瓦温</td><td id="t-7">Item 5B</td><td id="v-7">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>锁定位置</td><td id="t-8">Item 5B</td><td id="v-8">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>涡壳流量</td><td id="t-9">Item 5B</td><td id="v-9">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>顶盖水压</td><td id="t-10">Item 5B</td><td id="v-10">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>调速器油压</td><td id="t-11">Item 5B</td><td id="v-11">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>主阀油压</td><td id="t-12">Item 5B</td><td id="v-12">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>主配（主配压阀）行程</td><td id="t-13">Item 5B</td><td id="v-13">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>导叶后压力</td><td id="t-14">Item 5B</td><td id="v-14">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td rowspan="17">发电机</td>
+				<td>定子线圈与铁芯温度</td><td id="t-15">Item 5B</td><td id="v-15">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>冷却水压</td><td id="t-16">Item 5B</td><td id="v-16">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>发电机有功功率</td><td id="t-17">Item 5B</td><td id="v-17">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>发电机无功功率</td><td id="t-18">Item 5B</td><td id="v-18">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>发电机振动</td><td id="t-19">Item 5B</td><td id="v-19">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>机组转速</td><td id="t-20">Item 5B</td><td id="v-20">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>母线电压</td><td id="t-21">Item 5B</td><td id="v-21">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>控制侧电流</td><td id="t-22">Item 5B</td><td id="v-22">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>转子温度</td><td id="t-23">Item 5B</td><td id="v-23">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>电网电压</td><td id="t-24">Item 5B</td><td id="v-24">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>功率侧电流</td><td id="t-25">Item 5B</td><td id="v-25">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>风闸（水轮发电机制动器）位置</td><td id="t-26">Item 5B</td><td id="v-26">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>机组频率</td><td id="t-27">Item 5B</td><td id="v-27">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>电网频率</td><td id="t-28">Item 5B</td><td id="v-28">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>控制侧电压</td><td id="t-29">Item 5B</td><td id="v-29">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>功率侧电压</td><td id="t-30">Item 5B</td><td id="v-30">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>机组功率</td><td id="t-31">Item 5B</td><td id="v-31">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td rowspan="11">其它参数</td>
+				<td>进水口闸门状态</td><td id="t-32">Item 5B</td><td id="v-32">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>泄洪闸门状态</td><td id="t-33">Item 5B</td><td id="v-33">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>工作水头</td><td id="t-34">Item 5B</td><td id="v-34">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>上游水位</td><td id="t-35">Item 5B</td><td id="v-35">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>下游水位</td><td id="t-36">Item 5B</td><td id="v-36">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>厂用母线电压</td><td id="t-37">Item 5B</td><td id="v-37">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>主变低压侧电压</td><td id="t-38">Item 5B</td><td id="v-38">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>控制母线（控制、检测、信号等）电压</td><td id="t-39">Item 5B</td><td id="v-39">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>合闸母线、合闸线圈电压</td><td id="t-40">Item 5B</td><td id="v-40">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>线路负荷</td><td id="t-41">Item 5B</td><td id="v-41">Item 5C</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td>线路电流</td><td id="t-42">Item 5B</td><td id="v-42">Item 5C</td>
+			</tr>
+			
+		</table>
+		<div class="row" style="height: 42rem;">
+			
+		</div>
+		
+		<script type="text/javascript" src="parameter.js" ></script>
+	</body>
+</html>

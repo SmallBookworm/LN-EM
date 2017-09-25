@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js" ></script>
+		<!--<script type="text/javascript" src="../js/jquery.js" ></script>-->
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>		
+		<script type="text/javascript" src="../js/ichart.latest.min.js" ></script>		
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+		<title></title>
+		<style type="text/css">      
+		      #BgDiv{background-color:#e3e3e3; position:absolute; z-index:99; left:0; top:0; display:none; width:100%; height:100%;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}
+		      
+		      #DialogDiv{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv .form{padding:10px;}
+		      
+		      #DialogDiv2{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv2 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv2 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv2 .form{padding:10px;}
+		      
+		      #DialogDiv3{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv3 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv3 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv3 .form{padding:10px;}
+		      
+		      #DialogDiv4{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv4 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv4 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv4 .form{padding:10px;}
+		      
+		      #DialogDiv5{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv5 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv5 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv5 .form{padding:10px;}
+		      
+		      #DialogDiv6{position:absolute;width:600px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;}
+		      #DialogDiv6 h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;}
+		      #DialogDiv6 h2 a{position:absolute; right:5px; font-size:12px; color:#000000}
+		      #DialogDiv6 .form{padding:10px;}
+  		</style>
+		<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                    //alert("clientWidth==" + clientWidth);
+	                    //if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                         docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }	             
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	<body>
+		<div>
+			<div style="height: 1rem;margin-left: 1rem;font-size: 0.5rem;text-align: center;margin-top: 0.5rem;">
+				管理建议		
+			</div>
+			<div class="row" style="margin-top: 0.5rem;">
+				<div class="col-md-2">					
+				</div>
+				<div class="col-md-2 svg-icon-1"  style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m1" onclick="ShowDIV('DialogDiv')">
+					<div style="margin-top: 0.2rem;" id="m1-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m1-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-1">					
+				</div>
+				<div class="col-md-2 svg-icon-1" style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m2" onclick="ShowDIV('DialogDiv2')">	
+					<div style="margin-top: 0.2rem;" id="m2-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m2-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-1">					
+				</div>
+				<div class="col-md-2 svg-icon-1" style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m3" onclick="ShowDIV('DialogDiv3')">
+					<div style="margin-top: 0.2rem;" id="m3-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m3-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-2">					
+				</div>
+			</div>
+			
+			
+			<div class="row" style="margin-top: 1.5rem;">
+				<div class="col-md-2">					
+				</div>
+				<div class="col-md-2 svg-icon-1"  style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m4" onclick="ShowDIV('DialogDiv4')">
+					<div style="margin-top: 0.2rem;" id="m4-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m4-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-1">					
+				</div>
+				<div class="col-md-2 svg-icon-1" style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m5" onclick="ShowDIV('DialogDiv5')">	
+					<div style="margin-top: 0.2rem;" id="m5-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m5-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-1">					
+				</div>
+				<div class="col-md-2 svg-icon-1" style="height: 6rem;background: #D3D3D3;text-align: left;font-size: 0.4rem;border-radius: 0.5rem;" id="m6" onclick="ShowDIV('DialogDiv6')">
+					<div style="margin-top: 0.2rem;" id="m6-1">
+						建议时间：2017-07-26
+					</div>
+					<div style="margin-top: 0.2rem;" id="m6-2">
+						管理建议：发电机功率调节为100
+					</div>
+				</div>
+				<div class="col-md-2">					
+				</div>
+			</div>		
+		</div>
+		
+		<div id="BgDiv"></div>
+  
+			  <!--遮罩层显示的DIV1-->
+			    <div id="DialogDiv" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose" onclick="closeDiv('DialogDiv')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100<br>
+				    	发电机功率调节为100<br>
+				    	发电机功率调节为100<br>
+				    	发电机功率调节为100
+				    </div>
+			    </div>
+			  
+			  <!--遮罩层显示的DIV2-->
+				<div id="DialogDiv2" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose2" onclick="closeDiv('DialogDiv2')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100</div>
+				</div>
+			  
+			  <!--遮罩层显示的DIV3-->
+			    <div id="DialogDiv3" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose3" onclick="closeDiv('DialogDiv3')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100</div>
+			    </div> 
+			    
+			    <!--遮罩层显示的DIV3-->
+			    <div id="DialogDiv4" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose3" onclick="closeDiv('DialogDiv4')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100</div>
+			    </div> 
+			    
+			    <!--遮罩层显示的DIV3-->
+			    <div id="DialogDiv5" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose3" onclick="closeDiv('DialogDiv5')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100</div>
+			    </div> 
+			    
+			    <!--遮罩层显示的DIV3-->
+			    <div id="DialogDiv6" style="display:none">
+				    <h2>管理建议<a href="#" id="btnClose3" onclick="closeDiv('DialogDiv6')">关闭</a></h2>
+				    <div class="form">发电机功率调节为100</div>
+			    </div> 
+		
+		<script type="text/javascript">
+		function ShowDIV(thisObjID) {
+	        $("#BgDiv").css({ display: "block", height: $(document).height() });
+	        // $("#BgDiv").css("display","block");
+	        var yscroll = document.documentElement.scrollTop;
+	        $("#" + thisObjID ).css("top", "100px");
+	        $("#" + thisObjID ).css("display", "block");
+	    	document.documentElement.scrollTop = 0;
+      }
+      function closeDiv(thisObjID) {
+      	//alert("1");
+          $("#BgDiv").css("display", "none");
+          //alert("2");
+          $("#" + thisObjID).css("display", "none");
+          //alert("3");
+      }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" />
+<link href="../css/zzsc.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js" ></script>
+<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script type="text/javascript" src="../js/ichart.latest.min.js" ></script>
+<script type="text/javascript" src="../js/zepto_min.js"></script>
+<script type="text/javascript" src="../js/touchslider.js"></script>
+<script type="text/javascript" src="../js/api.js" ></script>
+
+<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                       docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                       //alert(+100 * (clientWidth / 3840));
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+</script>
+<style type="text/css">
+		.dropdown {
+		    position: relative;
+		    display: inline-block;
+		}
+
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 3.2rem;
+		    box-shadow: 0rem 0.16rem 0.32rem 0rem rgba(0,0,0,0.2);
+		}
+
+		.dropdown-content a {
+		    color: black;
+		    padding: 0.24rem 0.32rem;
+		    text-decoration: none;
+		    display: block;
+		    font-size: 0.3rem;
+		}
+
+		.dropdown-content a:hover {background-color: #f1f1f1}
+
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+		.dropdown:hover{
+		    background-color: #31B0D5;
+		    background: #31B0D5;
+		}
+		.left{
+	    	float: left;
+	    	height: 18.5rem;
+	    	margin-top: 0rem;
+	    	width: 65%;
+	    }
+	    .right{
+	    	float: left;
+	    	height: 18.5rem;
+	    	margin-top: 0rem;
+	    	width:35%;
+	    	/*background:rgba(0,0,0,0)none repeat scroll!important;
+	    	border: 1px solid #594877;*/
+	    }
+	</style>
+</head>
+<body>
+<div class="box-163css">
+	<ul id="pagenavi1" class="page">
+        <li><a href="#" class="active">首页</a></li>
+      	<li><a href="#">报警信息</a></li>
+        <li><a href="#">实时信息</a></li>
+        <li><a href="#">电量统计</a></li>
+    </ul>
+    <div style="float: right;margin-right: 0.5rem;margin-top: -0.7rem;" class="btn-group">
+    	<button type="button" id="user" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: rgba(0,0,0,0);color: #FFFFFF;border: hidden;">
+			集团用户 <span class="caret"></span>
+		</button>
+			<ul class="dropdown-menu" id="userlist" onclick="changeuser()">
+				<li onclick="changeuser()">
+					<a>集团用户</a>
+				</li>
+				<li onclick="changeuser()">
+					<a>水电站1用户</a>
+				</li>
+				<li onclick="changeuser()">
+					<a>水电站2用户</a>
+				</li>
+				<li onclick="changeuser()">
+					<a>水电站3用户</a>
+				</li>
+			</ul>
+    </div>
+    <div id="slider1" class="swipe">
+    	
+      <ul class="box01_list">
+        <li class="li_list">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+						</div>
+						<div class="col-md-8"style="margin-left: 0rem;">
+							<img src="../img/yunxingtianshu.jpg" style="height: 5.5rem;"/>
+							<div style="font-size: 0.5rem;margin-top: -3.8rem;padding-left: 1.1rem;">
+								系统运行天数:
+							</div>
+							<div id="day" style="font-size: 1rem;margin-top: 0rem;padding-left: 1rem;">
+								100天
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-8"style="margin-left: 0rem;height: 4rem;background: #02BD85;border-radius: 0.6rem;text-align: center;margin-top: 0.7rem;">							
+							<div style="font-size: 0.5rem;padding-top: 1rem;">
+								设备数量:
+							</div>
+							<div id="equipnum" style="font-size: 1rem;">
+								20台
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-8"style="margin-left: 0rem;height: 4rem;background: #02BD85;border-radius: 0.6rem;text-align: center;margin-top: 0.7rem;">							
+							<div style="font-size: 0.5rem;padding-top: 1rem;">
+								当日发电量:
+							</div>
+							<div id="dayele" style="font-size: 1rem;">
+								10000KW*h
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-8"style="margin-left: 0rem;height: 4rem;background: #02BD85;border-radius: 0.6rem;text-align: center;margin-top: 0.7rem;">							
+							<div style="font-size: 0.5rem;padding-top: 1rem;">
+								报警数量:
+							</div>
+							<div id="talarm" style="font-size: 1rem;">
+								10
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" style="height: 12.1rem;margin-top: 1rem;margin-left: 2.5rem;width: 33rem;border-style: double;border-radius: 0.3rem;" id="baiduMap"></div>
+			</div>	
+																
+		</li>
+				
+        <li class="li_list">        	
+			<div class="row" style="height: 0.8rem;margin-left: 1rem; font-size: 0.3rem;float: left;">				
+				<div class="center container-fluid col-md-3">
+					<div class="input-group input-daterange">
+						<input id='start' type="text" class="form-control" >
+						<div class="input-group-addon">to</div>
+						<input id='end' type="text" class="form-control" disabled="">
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button type="button" style="margin-top: 0.1rem;">查询</button>
+				</div>
+				
+				<div class="col-md-6" style="font-size: 0.6rem;">
+					<span style="margin-left: 3.5rem;">
+						报警信息
+					</span>
+				</div>
+				<div class="col-md-1">
+					<input type="button" name="class1" value="故障水电站" style="width: 2rem;height: 0.8rem; background: #98C9EE;margin-left: -1rem;" id="class1" onclick="toclass1()"/>
+				</div>
+				<div class="col-md-1">
+					<input type="button" name="class2" value="故障类别" style="width: 2rem;height: 0.8rem;background: #D4D4D4; margin-left: -1rem;" id="class2" onclick="toclass2()"/>
+				</div>
+			</div>
+			<div class="row" style="height: 19rem;margin-left: 1rem;margin-top: 0.8rem;">
+				<iframe id="fault" align="center" width="100%" height="100%" src="alternatoralarm.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+			</div>
+		</li>
+		
+		
+		<li class="li_list">			
+			<div class="" style="height: 18rem;margin-top: 0rem;">
+				<iframe id="parameter" align="center" width="100%" height="100%" src="nowCanvas.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>	
+			</div>												
+		</li>
+		
+		
+		<li class="li_list">
+			<div class="" style="height: 18rem;margin-top: 0rem;">
+				<iframe id="countpersonal" align="center" width="100%" height="100%" src="countpersonal.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+			</div>
+		</li>
+      </ul> 
+    </div>
+	
+</div>
+
+<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<script type="text/javascript" src="../js/daterange.js"></script>
+ <script type="text/javascript" src="../map.js"></script> 
+<script type="text/javascript">
+	(new dateRange($('#start'), $('#end'), function() {
+        console.log(arguments)
+      })).initRange();
+//顶层目录选项卡
+//for(n=1;n<3;n++){
+	var page='pagenavi'+1;
+	var mslide='slider'+1;
+	//var mtitle='emtitle'+n;
+	arrdiv = 'arrdiv' + 1;
+	var as=document.getElementById(page).getElementsByTagName('a');
+	var tt=new TouchSlider({id:mslide,'auto':'-1',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
+		var as=document.getElementById(this.page).getElementsByTagName('a');
+		as[this.p].className='';
+		as[index].className='active';
+		this.p=index;
+		var txt=as[index].innerText;
+	//	$("#"+this.page).parent().find('.emtitle').text(txt);
+		var txturl=as[index].getAttribute('href');		
+		var turl=txturl.split('#');
+		$("#"+this.page).parent().find('.go_btn').attr('href',turl[1]);
+	}});
+	tt.page = page;
+	tt.p = 0;
+	//console.dir(tt); console.dir(tt.__proto__);
+	for(var i=0;i<as.length;i++){
+		(function(){
+			var j=i;
+			as[j].tt = tt;
+			as[j].onclick=function(){
+				this.tt.slide(j);
+				return false;
+			}
+		})();
+	}
+	
+
+//}
+
+
+
+//索引时间
+//$('#starttime').datepicker({format:'yyyy-mm-dd',language: 'zh-CN',});
+//$('#endtime').datepicker({format:'yyyy-mm-dd',language: 'zh-CN',});
+
+
+function toclass1(){
+	document.getElementById("fault").src="alternatoralarm.html";
+	document.getElementById("class1").style.background="#98C9EE";
+	document.getElementById("class2").style.background="#D4D4D4";
+}
+
+function toclass2(){
+	document.getElementById("fault").src="personalalarm.html";
+	document.getElementById("class1").style.background="#D4D4D4";
+	document.getElementById("class2").style.background="#98C9EE";
+}
+
+window.onload  =   function() {
+	var  obj_lis  =  document.getElementById("userlist").getElementsByTagName("li");    
+		for(i = 0; i < obj_lis.length; i++) {        
+			obj_lis[i].onclick  =   function() {             //alert(this.innerHTML.replace('<a>','').replace('</a>',''));
+				var textli = this.innerHTML.replace('<a>', '').replace('</a>', '');
+				window.document.getElementById("user").innerHTML = textli + '<span class="caret"></span>';    
+			}    
+		}
+	}
+
+function changeuser(){
+	window.location.reload();
+}
+
+
+</script>
+</body>
+</html>

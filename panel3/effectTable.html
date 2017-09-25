@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/manager/bootstrap-table.css">
+		<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" />
+		<link rel="stylesheet" href="../css/button.css" />
+		<style>
+			.input-group.date {
+				width: 22rem;
+			}
+			
+			.input-group-addon#datetype:hover {
+				cursor: pointer;
+			}
+			
+			#NO {
+				margin-bottom: 20px;
+			}
+		</style>
+		<title>效果评估表</title>
+	</head>
+
+	<body>
+				<select id="NO">
+			<option>水电站1</option>
+			<option>水电站2</option>
+		</select>
+		<div class="center container-fluid">
+			<div class="input-group date">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+				<input type="text" class="form-control datepicker">
+				<span class="blue input-group-addon" id="datetype">日<i class="glyphicon glyphicon-triangle-bottom"></i></span>
+			</div>
+			<table id="table" data-toolbar="#toolbar" data-striped="true" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-show-export="true" data-detail-view="false" data-show-pagination-switch="true" data-pagination="true" data-show-footer="false" data-side-pagination="client" data-response-handler="responseHandler"></table>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script src="../js/manager/bootstrap-table.js"></script>
+	<script src="../js/manager/bootstrap-table-zh-CN.js"></script>
+	<script src="../js/export/bootstrap-table-export.js"></script>
+	<script src="../js/export/FileSaver.min.js"></script>
+	<script src="../js/export/tableExport.min.js"></script>
+	<script src="../js/datepicker/bootstrap-datepicker.min.js"></script>
+	<script src="../js/dateType.js"></script>
+	<script src="effectTable.js"></script>
+
+</html>

@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>水电管理系统登陆平台</title>
+		 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+        <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+          <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+        <script type="text/javascript" src="javascripts/bootstrap-colorpicker.js"></script>
+	<script type="text/javascript" src="javascripts/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="javascripts/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/date.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.validate.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.sparkline.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.fancybox.pack.js"></script>
+	    <script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    var clientWidth = docEl.clientWidth;
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                       docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	        
+	     function FormSubmit2(){
+	        var employeecode=document.getElementById("employeecode").value;
+	        var password=document.getElementById("password").value;
+	        if(employeecode==null||employeecode==""){
+	        alert("登陆账号不能为空"); 
+			return false; 
+	        }
+	        if(password==null||password==""){
+	        alert("密码不能为空"); 
+			return false; 
+	        }
+	        //document.action.submit();  
+	        }  
+	    </script>
+	    <style type="text/css">
+	    	.g{
+	    		border-style:outset ;
+	    	}
+	    </style>
+		
+	</head>
+	<body >
+	 <div style="background:url(img/loginbackground.jpg);">
+        <div class="row">
+        	<div class="col-md-2" style="height: 5rem;">
+        		<img src="img/BMS_logo.png" height="60">
+        	</div>
+        	<div class="col-md-12" style="text-align: center;height: 14.1rem;">
+        		<div style="background:rgba(0,0,0,0.1)none repeat scroll!important; width: 9rem;margin: auto;" class="row g">
+        			<h2>水电管理系统</h2>
+        			<form id="validation-form" action="http://172.20.241.51:8080/Hydropower/toindex.do" method="post">
+        			<div class="col-md-12" style="text-align: center;height: 1.4rem; padding-top: 0.2rem">
+        				<input type="text" id="employeecode" name="employeecode" style="height: 0.7rem;width: 5rem;" placeholder="用户名">
+        			</div>
+        			<div class="col-md-12" style="text-align: center;height: 1.2rem;">
+        				<input id="password" name="password" type="password" style="height: 0.7rem;width: 5rem;" placeholder="密码">
+        			</div> 
+        			<button id="btnsubmit" type="submit" style="display: none;">隐藏的提交按钮</button>
+        			</form>
+            		<div class="col-md-12" style="text-align: center;height: 1.2rem;">
+        				<input type="button" value="登      陆" style="height: 0.7rem;width: 5rem;background: #265A88;color:#DFF0D8" onclick="formSubmit()">
+        			</div>
+        			<form action="http://172.20.241.51:8080/Hydropower/toindex.do" method="post"></form>   
+        		</div>	 
+        	</div>	
+		</div>
+    </div>
+	</body>
+		<script type="text/javascript">
+	  	//提交事件
+	  	function isubmit(){
+	  		$("#btnsubmit").click();
+	  		FormSubmit2();
+	  		formSubmit();
+	  	}
+	  
+	  	//ajax提交
+	  	function formSubmit(){
+	  	 $.ajax( {  type : "post",
+                 url : "http://172.20.241.51:8080/Hydropower/login.do",
+                 data : {employeecode:$("input[name='employeecode']").val(),
+				 password:$("input[name='password']").val()},
+                dataType: "json",
+                success : function(data) {
+                alert(data);
+                if(data == "1"){
+					//document.forms[1].submit();
+					window.location.href="main.html";
+	 			}else{ 				
+	 				alert(data);
+	 			}
+                        }
+                    });
+	  	}  	
+  	</script>
+</html>

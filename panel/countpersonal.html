@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" />
+		<link rel="stylesheet" href="../css/button.css" />
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/ichart.latest.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<style type="text/css">
+			.input-group.date {
+				width: 2rem;
+			}
+			
+			
+			.left {
+				float: left;
+				height: 16.5rem;
+				margin-top: 0.12rem;
+				width: 70%;
+			}
+			
+			.right {
+				float: left;
+				height: 3.3rem;
+				margin-top: 0.2rem;
+				width: 30%;
+				/*background:rgba(0,0,0,0)none repeat scroll!important;*/
+				/*border: 1px solid #594877;*/
+			}
+			
+			.input-group.date {
+				width: 22rem;
+			}
+			
+		</style>
+		<title></title>
+		<script type="text/javascript">
+			var width0;
+			var height0;
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientHeight = docEl.clientHeight;
+						//alert("clientHeight==" + clientHeight);
+						var clientWidth = docEl.clientWidth;
+						//alert("clientWidth==" + clientWidth);
+						//if (!clientWidth) return;
+						if(clientWidth >= clientHeight) {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+						}
+						document.getElementById("personal").style.height = (clientWidth / 1920) * 350 + 'px';
+						document.getElementById("alternator").style.height = (clientWidth / 1920) * 350 + 'px';
+						document.getElementById("alternatoran").style.height = (clientWidth / 1920) * 350 + 'px';
+						//document.getElementById("alternatoryear").style.height=(clientWidth/1920)*350+'px';
+						//width0=(clientWidth/1920)*500+'px';
+						// height0=(clientWidth/1920)*300+'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body style="overflow:-Scroll;overflow-x:hidden">
+		<div>
+			<div class="row" style="height: 1rem;margin-left: 1rem;font-size: 0.3rem;">
+				<div class="center container-fluid col-md-3">
+					<div class="input-group input-daterange">
+						<input id='start' type="text" class="form-control">
+						<div class="input-group-addon">to</div>
+						<input id='end' type="text" class="form-control" disabled="">
+						<span class="blue input-group-addon" id="datetype">日<i class="glyphicon glyphicon-triangle-bottom"></i></span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button type="button" style="margin-top: 0.1rem;">查询</button>
+				</div>
+			</div>
+			<div class="row">
+				<div style="font-size: 0.4rem;font-weight: bold;text-align: center;margin-top: 0.1rem;">
+					集团发电量
+				</div>
+				<div id="personal" style="height: 350px;">
+				</div>
+			</div>
+
+			<div class="row">
+				<div style="margin-top: 0.6rem;text-align: center;">
+					<div style="font-size: 0.4rem;font-weight: bold;">
+						各水电站发电量对比图
+					</div>
+					<div id="alternator" style="height: 350px;">
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="height: 1rem;margin-left: 1rem;font-size: 0.3rem;margin-top: 0.6rem;">
+				<div class="center container-fluid col-md-3">
+					<div class="input-group input-daterange">
+						<input id='start1' type="text" class="form-control">
+						<div class="input-group-addon">and</div>
+						<input id='end1' type="text" class="form-control" disabled="">
+						<span class="blue input-group-addon" id="datetype1">日<i class="glyphicon glyphicon-triangle-bottom"></i></span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button type="button" style="margin-top: 0.1rem;">查询</button>
+				</div>
+			</div>
+			<div class="row">
+				<div style="margin-top: -0.2rem;text-align: center;">
+					<div style="font-size: 0.4rem;font-weight: bold;">
+						集团发电量同比图
+					</div>
+					<div id="alternatoran" style="height: 350px;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../js/dist/echarts-all.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-datepicker.zh-CN.min.js"></script>
+		<script type="text/javascript" src="alternator.js"></script>
+		<script type="text/javascript" src="personal.js"></script>
+		<script type="text/javascript" src="alternatoran.js"></script>
+		<script type="text/javascript" src="../js/daterange.js"></script>
+		<script type="text/javascript">
+			(new dateRange($('#start'), $('#end'), function() {
+				console.log(arguments)
+			})).initRAT(document.getElementById('datetype'));
+			(new dateRange($('#start1'), $('#end1'), function() {
+				console.log(arguments)
+			})).initRAT(document.getElementById('datetype1'));
+			//window.resizeTo(1920, 932);//改变大小   
+			window.onresize = function() {
+				myChart1.resize();
+				myChart2.resize();
+				myChart3.resize();
+			};
+		</script>
+	</body>
+
+</html>

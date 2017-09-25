@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		
+		<title></title>
+		<style type="text/css">			
+				table.hovertable {
+					font-family: verdana,arial,sans-serif;					
+					font-size:11px;					
+					color:#333333;					
+					border-width: 1px;					
+					border-color: #999999;					
+					border-collapse: collapse;				
+				}
+				
+				table.hovertable th {				
+					background-color:#c3dde0;					
+					border-width: 1px;					
+					padding: 8px;					
+					border-style: solid;					
+					border-color: #a9c6c9;				
+				}
+				
+				table.hovertable tr {				
+					background-color:#d4e3e5;				
+				}
+				
+				table.hovertable td {				
+					border-width: 1px;					
+					padding: 8px;					
+					border-style: solid;					
+					border-color: #a9c6c9;
+				
+				}
+		</style>
+		<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	<body>
+		<div style="text-align: center;font-size: 0.5rem;margin-top: 0.5rem;">
+			设备台账管理
+		</div>
+		<table id="ctable" border="1" class="col-md-11 hovertable" style="text-align: center;margin-left: 4.6666%;margin-top: 0.5rem;">
+			<tr>
+				<th style="text-align: center;">序号</th><th style="text-align: center;">型号</th><th style="text-align: center;">产品序列号</th><th style="text-align: center;">厂家</th><th style="text-align: center;">地址</th>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td id="number-1">1</td><td id="class-1">cs00012</td><td id="x-1">111111111</td><td id="name-1">某水电集团</td><td id="address-1">湖南长沙</td>
+			</tr>
+			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+				<td id="number-1">2</td><td id="class-2">cs00012</td><td id="x-2">222222222</td><td id="name-2">某水电集团</td><td id="address-2">湖南长沙</td>
+			</tr>
+	
+			
+		</table>
+		
+		
+		
+	</body>
+</html>

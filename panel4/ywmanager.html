@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link href="../css/zzsc.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" />
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js" ></script>
+<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script type="text/javascript" src="../js/ichart.latest.min.js" ></script>
+<script type="text/javascript" src="../js/zepto_min.js"></script>
+<script type="text/javascript" src="../js/touchslider.js"></script>
+<script type="text/javascript" src="../js/api.js" ></script>
+<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                       docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                       //alert(+100 * (clientWidth / 3840));
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+</script>
+<style type="text/css">
+		.dropdown {
+		    position: relative;
+		    display: inline-block;
+		}
+
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 3.2rem;
+		    box-shadow: 0rem 0.16rem 0.32rem 0rem rgba(0,0,0,0.2);
+		}
+
+		.dropdown-content a {
+		    color: black;
+		    padding: 0.24rem 0.32rem;
+		    text-decoration: none;
+		    display: block;
+		    font-size: 0.3rem;
+		}
+
+		.dropdown-content a:hover {background-color: #f1f1f1}
+
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
+
+		.dropdown:hover{
+		    background-color: #31B0D5;
+		    background: #31B0D5;
+		}
+		.left{
+	    	float: left;
+	    	height: 18.5rem;
+	    	margin-top: 0rem;
+	    	width: 65%;
+	    }
+	    .right{
+	    	float: left;
+	    	height: 18.5rem;
+	    	margin-top: 0rem;
+	    	width:35%;
+	    	/*background:rgba(0,0,0,0)none repeat scroll!important;
+	    	border: 1px solid #594877;*/
+	    }
+	</style>
+</head>
+<body>
+<div class="box-163css">
+	<ul id="pagenavi1" class="page">
+        <li><a href="#" class="active">操作记录</a></li>
+      	<li><a href="#">运行日志</a></li>
+        <li><a href="#">账号注册</a></li>
+        <li><a href="#">账号管理</a></li>
+        <!--<li><a href="#">故障分析</a></li>-->
+        <li><a href="#">台账管理</a></li>
+    </ul>
+    <div style="float: right;margin-right: 0.5rem;margin-top: -0.7rem;" class="btn-group">
+		    	<button type="button" id="user" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: rgba(0,0,0,0);color: #FFFFFF;border: hidden;">
+					集团用户 <span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu" id="userlist">
+						<li>
+							<a>集团用户</a>
+						</li>
+						<li>
+							<a>水电站1用户</a>
+						</li>
+						<li>
+							<a>水电站2用户</a>
+						</li>
+						<li>
+							<a>水电站3用户</a>
+						</li>
+					</ul>
+    </div>
+    
+    <div id="slider1" class="swipe">
+    	
+      <ul class="box01_list">
+        <li class="li_list">
+			<div class="row" style="height: 18rem;margin-left: 0.5rem;margin-right: 0.5rem;margin-top: 0.8rem;">
+				<iframe id="operation" align="center" width="100%" height="100%" src="operationLog.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>																	
+		</li>
+				
+        <li class="li_list">        	
+			<div class="row" style="height: 18rem;margin-left: 0.5rem;margin-right: 0.5rem;margin-top: 0.8rem;">
+				<iframe id="running" align="center" width="100%" height="100%" src="runningLog.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>
+		</li>
+		
+		
+		<li class="li_list">
+			<div class="row" style="height: 18rem;margin-left: 0rem;margin-top: 0.8rem;">
+				<iframe id="signup" align="center" width="100%" height="100%" src="signup.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>
+		</li>
+		
+		
+		<li class="li_list">
+			<div class="row" style="height: 16.5rem;margin-left: 0.5rem;margin-right: 0.5rem;margin-top: 0.8rem;">
+				<iframe id="IDmanage" align="center" width="100%" height="100%" src="IDmanage.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+			</div>
+		</li>
+		
+		<!--<li class="li_list">
+			<div class="row" style="height: 0.8rem;margin-left: 1rem; font-size: 0.3rem;">				
+				<div class="center container-fluid col-md-3">
+					<div class="input-group input-daterange">
+						<input id='start' type="text" class="form-control" >
+						<div class="input-group-addon">to</div>
+						<input id='end' type="text" class="form-control" disabled="">
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button type="button" style="margin-top: 0.1rem;">查询</button>
+				</div>
+				<div class="col-md-6" style="font-size: 0.6rem;">
+					<span style="margin-left: 3.5rem;">
+						报警信息
+					</span>
+				</div>
+				<div class="col-md-1">
+					<input type="button" name="zhukong" value="主控故障" style="width: 2rem;height: 0.8rem; background: #98C9EE;margin-left: -1rem;" id="mainctrl" onclick="zhukong()"/>
+				</div>
+				<div class="col-md-1">
+					<input type="button" name="xitong" value="系统故障" style="width: 2rem;height: 0.8rem;background: #D4D4D4; margin-left: -1rem;" id="sysctrl" onclick="xitong()"/>
+				</div>
+			</div>
+			<div class="row" style="height: 19rem;margin-left: 1rem;margin-top: 0.8rem;">
+				<iframe id="fault" align="center" width="100%" height="100%" src="zhukong.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>
+		</li>-->
+		
+		<li class="li_list">
+			<div class="row" style="margin-left: 1rem;margin-top: 0.8rem;height: 18rem;">
+				<iframe id="taizhang" align="center" width="100%" height="100%" src="taizhang.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+			</div>	
+			
+		</li>
+      </ul> 
+    </div>
+	
+</div>
+
+   
+
+<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.zh-CN.min.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/daterange.js"></script>
+<script type="text/javascript">
+	(new dateRange($('#start'), $('#end'), function() {
+        console.log(arguments)
+      })).initRange();
+//顶层目录选项卡
+//for(n=1;n<3;n++){
+	var page='pagenavi'+1;
+	var mslide='slider'+1;
+	//var mtitle='emtitle'+n;
+	arrdiv = 'arrdiv' + 1;
+	var as=document.getElementById(page).getElementsByTagName('a');
+	var tt=new TouchSlider({id:mslide,'auto':'-1',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
+		var as=document.getElementById(this.page).getElementsByTagName('a');
+		as[this.p].className='';
+		as[index].className='active';
+		this.p=index;
+		var txt=as[index].innerText;
+	//	$("#"+this.page).parent().find('.emtitle').text(txt);
+		var txturl=as[index].getAttribute('href');		
+		var turl=txturl.split('#');
+		$("#"+this.page).parent().find('.go_btn').attr('href',turl[1]);
+	}});
+	tt.page = page;
+	tt.p = 0;
+	//console.dir(tt); console.dir(tt.__proto__);
+	for(var i=0;i<as.length;i++){
+		(function(){
+			var j=i;
+			as[j].tt = tt;
+			as[j].onclick=function(){
+				this.tt.slide(j);
+				return false;
+			}
+		})();
+	}
+//}
+function zhukong(){
+	document.getElementById("fault").src="zhukong.html";
+	document.getElementById("mainctrl").style.background="#98C9EE";
+	document.getElementById("sysctrl").style.background="#D4D4D4";
+}
+//系统故障
+function xitong(){
+	document.getElementById("fault").src="xitong.html";
+	document.getElementById("mainctrl").style.background="#D4D4D4";
+	document.getElementById("sysctrl").style.background="#98C9EE";
+}
+window.onload  =   function() {
+				var  obj_lis  =  document.getElementById("userlist").getElementsByTagName("li");    
+				for(i = 0; i < obj_lis.length; i++) {        
+					obj_lis[i].onclick  =   function() {             //alert(this.innerHTML.replace('<a>','').replace('</a>',''));
+						var textli = this.innerHTML.replace('<a>', '').replace('</a>', '');
+						window.document.getElementById("user").innerHTML = textli + '<span class="caret"></span>';    
+					}    
+				}
+			}
+</script>
+</body>
+</html>

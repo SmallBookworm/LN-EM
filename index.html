@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+        <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="index.js"></script>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	    <script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                       docEl.style.fontSize = 100 * (clientWidth / 3840) + 'px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	    <style type="text/css">
+	    	.g{
+	    		border-style:outset ;
+	    	}
+	    </style>
+		<title></title>
+	</head>
+	<body>
+	<div style="background:url(img/loginbackground.jpg);">
+        <div class="row">
+        	<div class="col-md-2" style="height: 5rem;">
+        		<img src="img/BMS_logo.png" height="60">
+        	</div>
+        	<div class="col-md-12" style="text-align: center;height: 14.1rem;">
+        		<div style="background:rgba(0,0,0,0.1)none repeat scroll!important; width: 9rem;margin: auto;" class="row g">
+        			<h2>水电管理系统</h2>
+        			<div class="col-md-12" style="text-align: center;height: 1.4rem; padding-top: 0.2rem">
+        				<input type="text" id="usename" style="height: 0.7rem;width: 5rem;" placeholder="用户名">
+        			</div>
+        			<div class="col-md-12" style="text-align: center;height: 1.2rem;">
+        				<input type="password" id="password" style="height: 0.7rem;width: 5rem;" placeholder="密码">
+        			</div> 
+            		<div class="col-md-12" style="text-align: center;height: 1.2rem;">
+        				<input type="submit" value="登      陆" style="height: 0.7rem;width: 5rem;background: #265A88;color:#DFF0D8" onclick="checkusename()">
+        			</div>   
+        		</div>	
+        	</div>	
+		</div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<title></title>
+		<script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                recalc = function () {
+	                    var clientHeight = docEl.clientHeight;
+	                    //alert("clientHeight==" + clientHeight);
+	                    var clientWidth = docEl.clientWidth;
+	                   // alert("clientWidth==" + clientWidth);
+	                    if (!clientWidth) return;
+	                    if (clientWidth >= clientHeight) {
+	                        docEl.style.fontSize = '50px';
+	                    } else {
+	                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	                    }
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	<body>
+		<div>
+			<div  id="zhukong" style="float: left;">
+					<!--<div class="svg-icon-1" style="background:#8DDDFF; width: 4.1rem;text-align: center;margin: 0.3rem;margin-top: 0.4rem;font-size: 0.33rem;border-radius: 0.1rem;">
+						{{x.name}}<br>数量：{{x.number}}
+					</div>-->
+				</div>
+		</div>
+		<script type="text/javascript" src="zhukong.js" ></script>
+		<script type="text/javascript">
+			$(document).click(function(e) { // 在页面任意位置点击而触发此事件
+				var id=$(e.target).attr("id");       // e.target表示被点击的目标
+				if(!(id==undefined)){
+					alarm();
+				}
+							
+			})
+		</script>
+	</body>
+</html>
